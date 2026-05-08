@@ -22,15 +22,18 @@ public class PainelEsboco extends JPanel {
     private PainelBotaoCrud painelBotaoCrud;
     private Estudo estudo;
     private EstudoService estudoService;
+    private GridEsboco gridEsboco;
+    private PainelGrid painelGrid;
 
 
     public PainelEsboco() {
         this.setLayout(new FlowLayout());
         this.setSize(1024,768);
+        //this.setBackground(Color.pink);
 
 
         painelDeCanpos = new JPanel();
-        painelDeCanpos.setPreferredSize(new Dimension(1120, 1000));
+        painelDeCanpos.setPreferredSize(new Dimension(1120, 1200));
         painelDeCanpos.setLayout(null);
 
         this.lblTema = new JLabel("Tema");
@@ -55,6 +58,7 @@ public class PainelEsboco extends JPanel {
 
         this.txtIntroducao = new JTextArea(5,30);
         this.txtIntroducao.setBounds(10,110,1100,200);
+        this.txtIntroducao.setLineWrap(true);
         painelDeCanpos.add(this.txtIntroducao);
 
         this.lblDesenvolvimento = new JLabel("Desenvolvimento");
@@ -63,6 +67,7 @@ public class PainelEsboco extends JPanel {
 
         this.txtDesenvolvimento = new JTextArea(5,30);
         this.txtDesenvolvimento.setBounds(10,340,1100,200);
+        this.txtDesenvolvimento.setLineWrap(true);
         painelDeCanpos.add(this.txtDesenvolvimento);
 
         this.lblConclusao = new JLabel("Conclusão");
@@ -71,11 +76,17 @@ public class PainelEsboco extends JPanel {
 
         this.txtConclusao = new JTextArea(5,30);
         this.txtConclusao.setBounds(10,570,1100,200);
+        this.txtConclusao.setLineWrap(true);
         painelDeCanpos.add(this.txtConclusao);
 
         painelBotaoCrud = new PainelBotaoCrud();
         painelBotaoCrud.setBounds(10,800,500,30);
         painelDeCanpos.add(painelBotaoCrud);
+
+        painelGrid = new PainelGrid();
+        painelGrid.setBounds(10,850,1100,200);
+        painelDeCanpos.add(painelGrid);
+
 
         painelBotaoCrud.botaoIncluir.addActionListener(new ActionListener() {
             @Override

@@ -17,11 +17,14 @@ public class Estudo {
     private String tema;
     private String textoBase;
 
-    @Lob
+
+    @Column(columnDefinition = "TEXT")
     private String introducao;
-    @Lob
+
+    @Column(columnDefinition = "TEXT")
     private String desenvolvimento;
-    @Lob
+
+    @Column(columnDefinition = "TEXT")
     private String conclusao;
 
     @Enumerated(EnumType.STRING)
