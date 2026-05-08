@@ -2,6 +2,9 @@ package br.com.estudos.interfaces;
 
 
 
+import br.com.estudos.entity.Estudo;
+import br.com.estudos.enuns.TipoEstudo;
+import br.com.estudos.service.EstudoService;
 import lombok.Data;
 
 
@@ -17,6 +20,8 @@ public class PainelEsboco extends JPanel {
     private JTextArea txtIntroducao, txtDesenvolvimento, txtConclusao;
     private JPanel painelDeCanpos;
     private PainelBotaoCrud painelBotaoCrud;
+    private Estudo estudo;
+    private EstudoService estudoService;
 
 
     public PainelEsboco() {
@@ -75,12 +80,24 @@ public class PainelEsboco extends JPanel {
         painelBotaoCrud.botaoIncluir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                estudo = new Estudo(getTxtTema().getText(), getTxtTextoBase().getText(),getTxtIntroducao().getText(), getTxtDesenvolvimento().getText(), getTxtConclusao().getText(), TipoEstudo.ESBOCO);
+                estudoService = new EstudoService();
+                estudoService.salvar(estudo);
+                limparCampos();
 
             }
         });
 
         this.add(painelDeCanpos);
 
+    }
+
+    private void limparCampos(){
+        this.getTxtTema().setText("");
+        this.getTxtTextoBase().setText("");
+        this.getTxtIntroducao().setText("");
+        this.getTxtDesenvolvimento().setText("");
+        this.getTxtConclusao().setText("");
     }
 
 
