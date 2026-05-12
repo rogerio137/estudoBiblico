@@ -1,5 +1,6 @@
 package br.com.estudos.interfaces;
 
+
 import javax.swing.*;
 
 import javax.swing.table.JTableHeader;
@@ -20,9 +21,16 @@ public class PainelGrid extends JPanel {
 
         header = this.gridEsboco.getTableHeader();
         header.setBackground(Color.CYAN);
-        header.set
 
         JScrollPane scrollPane = new JScrollPane(gridEsboco);
         this.add(scrollPane);
+    }
+
+    public GridEsboco getGridEsboco() {
+        return gridEsboco;
+    }
+
+    public void setGridEsboco(GridEsboco gridEsboco) {
+        this.gridEsboco = gridEsboco;
     }
 }

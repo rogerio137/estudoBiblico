@@ -18,7 +18,7 @@ public class TelaInicial extends JFrame {
     public TelaInicial() throws HeadlessException {
         this.setTitle("Sistema de estudos para ensinos biblicos");
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(1024,768);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setLayout(new BorderLayout());
@@ -44,7 +44,6 @@ public class TelaInicial extends JFrame {
         this.painelEsboco = new PainelEsboco();
         this.painelEsboco.setVisible(false);
         this.add(painelEsboco, BorderLayout.CENTER);
-
 
         this.esboco.addActionListener(new ActionListener() {
             @Override

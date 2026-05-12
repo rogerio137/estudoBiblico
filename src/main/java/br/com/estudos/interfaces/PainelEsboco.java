@@ -26,6 +26,7 @@ public class PainelEsboco extends JPanel {
     private PainelGrid painelGrid;
 
 
+
     public PainelEsboco() {
         this.setLayout(new FlowLayout());
         this.setSize(1024,768);
@@ -80,12 +81,10 @@ public class PainelEsboco extends JPanel {
         painelDeCanpos.add(this.txtConclusao);
 
         painelBotaoCrud = new PainelBotaoCrud();
-        painelBotaoCrud.setBounds(10,800,500,30);
+        painelBotaoCrud.setBounds(10,800,510,30);
+        painelBotaoCrud.botaoAlterar.setEnabled(false);
+        painelBotaoCrud.botaoExcluir.setEnabled(false);
         painelDeCanpos.add(painelBotaoCrud);
-
-        painelGrid = new PainelGrid();
-        painelGrid.setBounds(10,850,1100,200);
-        painelDeCanpos.add(painelGrid);
 
 
         painelBotaoCrud.botaoIncluir.addActionListener(new ActionListener() {
@@ -99,7 +98,17 @@ public class PainelEsboco extends JPanel {
             }
         });
 
+        painelBotaoCrud.botaoPesquisar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaGridConsulta telaGridConsulta = new TelaGridConsulta();
+                telaGridConsulta.setVisible(true);
+            }
+        });
+
         this.add(painelDeCanpos);
+
+
 
     }
 

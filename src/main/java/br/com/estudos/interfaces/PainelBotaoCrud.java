@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PainelBotaoCrud extends JPanel {
-    public JButton botaoIncluir, botaoExcluir, botaoAlterar, botaoCancelar;
+    public JButton botaoIncluir, botaoExcluir, botaoAlterar, botaoCancelar, botaoPesquisar;
 
     public PainelBotaoCrud(){
         this.setLayout(new GridLayout(1,5));
@@ -24,6 +24,9 @@ public class PainelBotaoCrud extends JPanel {
 
         this.botaoCancelar = new JButton("Cancelar", EstudosUtil.imageIcon("/img/cancel.png"));
         this.add(this.botaoCancelar);
+
+        this.botaoPesquisar = new JButton("Pesquisar", EstudosUtil.imageIcon("/img/magnifier.png"));
+        this.add(this.botaoPesquisar);
     }
 
 }
