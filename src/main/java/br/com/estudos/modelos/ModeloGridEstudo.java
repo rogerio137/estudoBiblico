@@ -55,6 +55,10 @@ public class ModeloGridEstudo extends AbstractTableModel {
         estudos.add(e);
         fireTableRowsInserted(posicao, posicao); // notifica apenas a nova linha
     }
+    public Estudo getEstudoAt(int rowIndex) {
+        return estudos.get(rowIndex);
+    }
+
 
 
 

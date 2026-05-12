@@ -101,7 +101,7 @@ public class PainelEsboco extends JPanel {
         painelBotaoCrud.botaoPesquisar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaGridConsulta telaGridConsulta = new TelaGridConsulta();
+                TelaGridConsulta telaGridConsulta = new TelaGridConsulta(PainelEsboco.this);
                 telaGridConsulta.setVisible(true);
             }
         });
@@ -111,6 +111,15 @@ public class PainelEsboco extends JPanel {
 
 
     }
+
+    public void popularCampos(Estudo estudo){
+        this.getTxtTema().setText(estudo.getTema());
+        this.getTxtTextoBase().setText(estudo.getTextoBase());
+        this.getTxtConclusao().setText(estudo.getConclusao());
+        this.getTxtIntroducao().setText(estudo.getIntroducao());
+        this.getTxtDesenvolvimento().setText(estudo.getDesenvolvimento());
+    }
+
 
     private void limparCampos(){
         this.getTxtTema().setText("");

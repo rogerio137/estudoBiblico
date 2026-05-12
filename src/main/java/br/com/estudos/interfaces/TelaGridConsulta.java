@@ -22,8 +22,10 @@ public class TelaGridConsulta extends JFrame {
     private ModeloGridEstudo modeloGridEstudo;
     private EstudoService estudoService;
     private JButton botaoFechar;
+    private PainelEsboco painelEsboco;
 
-    public TelaGridConsulta(){
+    public TelaGridConsulta(PainelEsboco painelEsboco){
+        this.painelEsboco = painelEsboco;
         this.setLayout(new BorderLayout());
         this.setSize(700,300);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -79,8 +81,12 @@ public class TelaGridConsulta extends JFrame {
                     e.consume();
                     int linha = painelGrid.getGridEsboco().getSelectedRow();
                     if(linha != -1){
-                        Object valor = painelGrid.getGridEsboco().getValueAt(linha, 0);
-                        JOptionPane.showMessageDialog(null,"Você clicou duas vezes na linha "+" (valor: " + valor + ")");
+                        Estudo estudo = modeloGridEstudo.getEstudoAt(linha);
+                        painelEsboco.popularCampos(estudo);
+                        dispose();
+                        painelEsboco.getPainelBotaoCrud().botaoAlterar.setEnabled(true);
+                        painelEsboco.getPainelBotaoCrud().botaoIncluir.setEnabled(false);
+                        painelEsboco.getPainelBotaoCrud().botaoExcluir.setEnabled(true);
                     }
 
                 }
