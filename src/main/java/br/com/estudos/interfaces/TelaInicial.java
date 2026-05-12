@@ -12,6 +12,7 @@ public class TelaInicial extends JFrame {
     private static Integer ALTURA_BOTAO = 100;
     private static Integer TAMANHO_FONT = 15;
     private PainelEsboco painelEsboco;
+    private PainelEstudo painelEstudo;
 
 
 
@@ -43,11 +44,18 @@ public class TelaInicial extends JFrame {
 
         this.painelEsboco = new PainelEsboco();
         this.painelEsboco.setVisible(false);
-        this.add(painelEsboco, BorderLayout.CENTER);
+
+
+        this.painelEstudo = new PainelEstudo();
+        this.painelEstudo.setVisible(false);
+        //this.add(painelEstudo);
+
 
         this.esboco.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                painelEstudo.setVisible(false);
+                add(painelEsboco, BorderLayout.CENTER);
                 painelEsboco.setVisible(true);
             }
         });
@@ -56,6 +64,8 @@ public class TelaInicial extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 painelEsboco.setVisible(false);
+                add(painelEstudo, BorderLayout.CENTER);
+                painelEstudo.setVisible(true);
             }
         });
 

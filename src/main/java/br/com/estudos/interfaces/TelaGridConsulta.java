@@ -2,6 +2,7 @@ package br.com.estudos.interfaces;
 
 import br.com.estudos.entity.Estudo;
 import br.com.estudos.enuns.CamposFiltro;
+import br.com.estudos.enuns.TipoEstudo;
 import br.com.estudos.modelos.ModeloGridEstudo;
 import br.com.estudos.service.EstudoService;
 
@@ -24,7 +25,7 @@ public class TelaGridConsulta extends JFrame {
     private JButton botaoFechar;
     private PainelEsboco painelEsboco;
 
-    public TelaGridConsulta(PainelEsboco painelEsboco){
+    public TelaGridConsulta(PainelEsboco painelEsboco, PainelEstudo painelEstudo, TipoEstudo tipoEstudo){
         this.painelEsboco = painelEsboco;
         this.setLayout(new BorderLayout());
         this.setSize(700,300);
@@ -82,7 +83,11 @@ public class TelaGridConsulta extends JFrame {
                     int linha = painelGrid.getGridEsboco().getSelectedRow();
                     if(linha != -1){
                         Estudo estudo = modeloGridEstudo.getEstudoAt(linha);
-                        painelEsboco.popularCampos(estudo);
+                        if(tipoEstudo.equals(TipoEstudo.ESBOCO)) {
+                            painelEsboco.popularCampos(estudo);
+                        }else{
+                            painelEstudo.popularCampos(estudo);
+                        }
                         dispose();
                         painelEsboco.getPainelBotaoCrud().botaoAlterar.setEnabled(true);
                         painelEsboco.getPainelBotaoCrud().botaoIncluir.setEnabled(false);
